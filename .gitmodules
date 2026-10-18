@@ -1,0 +1,3 @@
+[submodule "TS-UNB-Lib-Pico"]
+	path = TS-UNB-Lib-Pico
+	url = https://github.com/mioty-iot/TS-UNB-Lib-Pico.git
