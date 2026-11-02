@@ -4,6 +4,7 @@
     {"name": "host", "binaryDir": "${sourceDir}/build-host", "cacheVariables": {"PEMSY_HOST_TESTS": "ON", "CMAKE_BUILD_TYPE": "Debug"}},
     {"name": "node1", "binaryDir": "${sourceDir}/build-node1", "cacheVariables": {"PEMSY_NODE_ADDRESS": "1", "PEMSY_DEFAULT_RECIPIENT": "2", "CMAKE_BUILD_TYPE": "Release"}},
     {"name": "node2", "inherits": "node1", "binaryDir": "${sourceDir}/build-node2", "cacheVariables": {"PEMSY_NODE_ADDRESS": "2", "PEMSY_DEFAULT_RECIPIENT": "1"}},
+    {"name": "intellisense", "inherits": "node1", "binaryDir": "${sourceDir}/build-intellisense", "cacheVariables": {"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"}},
     {"name": "mioty", "inherits": "node1", "binaryDir": "${sourceDir}/build-mioty", "cacheVariables": {"PEMSY_ENABLE_MIOTY": "ON"}}
   ],
   "buildPresets": [

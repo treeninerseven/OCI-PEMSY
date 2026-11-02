@@ -92,6 +92,11 @@ endif()
 math(EXPR PEMSY_RADIO_FREQUENCY_HZ "869800000 + (${PEMSY_GROUP} - 1) * 20000")
 add_executable(pemsy src/main.c src/app.c src/lcd.c src/encoder.c src/temperature.c
     src/SPI.c src/radio.c src/mioty.cpp src/counter.c src/counter_flash.c)
+# Index the local LCD exercise when present. It is intentionally not built with the firmware.
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/examples/lcd/lcd.c")
+    add_library(lcd_exercise_for_editor OBJECT EXCLUDE_FROM_ALL examples/lcd/lcd.c)
+    target_link_libraries(lcd_exercise_for_editor PRIVATE pico_stdlib)
+endif()
 target_include_directories(pemsy PRIVATE include)
 target_include_directories(pemsy SYSTEM PRIVATE TS-UNB-Lib-Pico)
 target_compile_options(pemsy PRIVATE -Wall -Wextra)

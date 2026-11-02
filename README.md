@@ -56,6 +56,20 @@ cmake --preset node2
 cmake --build --preset node2 -j4
 ```
 
+### VS Code 中的 Pico SDK 代码提示
+
+项目的 `.vscode/settings.json` 使用 `build-intellisense/compile_commands.json` 为 C/C++
+扩展提供 SDK 头文件、宏和编译器参数。安装上述 SDK 和 Arm 工具链后，在仓库根目录生成该文件：
+
+```sh
+cmake --preset intellisense \
+  -DPICO_SDK_PATH="$PWD/.deps/pico-sdk" \
+  -DPICO_TOOLCHAIN_PATH="/你的路径/arm-gnu-toolchain/bin"
+```
+
+如果编辑器已经打开，执行“Developer: Reload Window”刷新代码提示。当前本地
+`examples/lcd/lcd.c` 存在时也会进入编译数据库，但不会加入固件构建。
+
 可配置参数：
 
 | 参数 | 默认 | 含义 |
