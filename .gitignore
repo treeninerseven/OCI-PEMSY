@@ -1,0 +1,7 @@
+/build*/
+/.deps/
+__pycache__/
+*.pyc
+._*
+/config/mioty_credentials.h
+/CMakeUserPresets.json
